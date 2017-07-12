@@ -1,0 +1,74 @@
+Arkanoid - Taito 1986 
+
+
+
+Bricks
+------
+There are three different kinds of bricks: colored bricks, silver bricks, and gold bricks. 
+Bricks of different colors make up the majority of the walls in each area. 
+They only require one hit to defeat, but they vary in point value from one another.
+
+White   - 50 points	
+Orange  - 60 points
+Cyan    - 70 points
+Green   - 80 points
+Red     - 90 points
+Blue    - 100 points
+Violet  - 110 points
+Yellow  - 120 points
+
+Silver bricks take more than one hit to destroy. 
+In the beginning, they only require two hits to destroy.
+The number of hits it takes to remove them increases by one every eight stages. 
+Silver  - 50 points * Round number 
+
+Gold bricks are indestructable and aren't removed from the level 
+Gold    - 0 points 
+
+
+
+
+
+
+
+
+
+
+
+The game of Arkanoid is divided into 33 stages. 
+The first 32 stages are composed of a variety of layouts of bricks. 
+The final 33rd stage is a confrontation between the Vaus and the physical manifestation of 
+the enemy known only as "DOH" who resembles a large head of a Moai statue from Easter Island. 
+
+After successfully clearing 32 stages, you will have the opportunity to use your remaining lives to defeat the enemy DOH. 
+If you do not succeed in defeating DOH before the game is over, you will not be permitted to continue and try again. 
+You must hit DOH with the ball 16 times. As you try, DOH spits projectiles from his mouth that are deadly to the Vaus. 
+If one of them strikes the Vaus, it will explode, so they must be avoided at all costs while preventing the ball from ever slipping 
+below the Vaus. If you succeed, you will be presented with the ending to the game.
+( https://strategywiki.org/wiki/Arkanoid/Walkthrough )
+
+
+Red 		- 90
+Orange
+Pink
+Green 	- 80 
+Yellow
+Blue 
+Light Blue
+White
+
+Silver - x3   - 50 
+Gold - Indestructible 
+ 
+
+
+Red "L" pill - Lasers 
+Blue "E" pill - Extended Vaus 
+
+
+
+
+Hexagon BG Enemies (cone dudes) - 100 points  
+
+
+Extra lives are typically awarded at 20,000 points, again at 60,000 points, and every 60,000 points thereafter.
