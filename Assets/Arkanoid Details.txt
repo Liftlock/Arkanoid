@@ -1,5 +1,43 @@
-Arkanoid - Taito 1986 
+Arkanoid - Taito 1986
+---------------------
+The game of Arkanoid is divided into 33 stages. 
+The first 32 stages are composed of a variety of layouts of bricks. 
+The final 33rd stage is a confrontation between the Vaus and the physical manifestation of the enemy known only as "DOH" who resembles a large head of a Moai statue from Easter Island. 
 
+After successfully clearing 32 stages, you will have the opportunity to use your remaining lives to defeat the enemy DOH. 
+If you do not succeed in defeating DOH before the game is over, you will not be permitted to continue and try again. 
+You must hit DOH with the ball 16 times. As you try, DOH spits projectiles from his mouth that are deadly to the Vaus. 
+If one of them strikes the Vaus, it will explode, so they must be avoided at all costs while preventing the ball from ever slipping below the Vaus. 
+If you succeed, you will be presented with the ending to the game.
+
+( https://strategywiki.org/wiki/Arkanoid/ )
+
+
+
+Controls
+--------
+You are in direct control of the spacecraft known as the "Vaus" at the bottom of the playfield (the paddle). 
+
+(((See Vaus_Normal.png)))
+
+Your primary goals are to prevent the red ball from ever falling below the paddle, and to eliminate every brick from the current stage in order to be granted access to the next stage. 
+
+The Vaus has the ability to transform in two ways. 
+One is by collecting the blue Enlarge capsule which extends the length of the Vaus. 
+The other is by collecting the red Laser capsule which transforms the Vaus with Lasers.
+
+(((See Vaus_Lasers.png)))
+
+In this configuration, you can fire Lasers up at the top of the screen. 
+
+Enemies may also appear on the screen and slowly make their way down to the bottom of the screen. 
+The Vaus can crash harmlessly into these enemies. They only serve as interference for the ball.
+
+
+Where the ball hits the paddle dictates how it will bounce off the paddle. If the ball hits the silver area in the middle, it will bounce off at a sharp angle. 
+If it hits the red bands near the sides, it will bounce off at a 45 degree angle. 
+And if it hits the very edges of the paddle, it will bounce off at a very shallow angle. 
+Use this information to not only keep the ball in play, but to better direct the path that it takes while you attempt to knockout all of the bricks.
 
 
 Bricks
@@ -20,55 +58,53 @@ Yellow  - 120 points
 Silver bricks take more than one hit to destroy. 
 In the beginning, they only require two hits to destroy.
 The number of hits it takes to remove them increases by one every eight stages. 
-Silver  - 50 points * Round number 
+Silver  - 50 points * Round Number 
 
 Gold bricks are indestructable and aren't removed from the level 
 Gold    - 0 points 
 
 
+Power-ups
+---------
+Power-ups appear after you remove a random number of non-silver bricks. 
+Only one power-up capsule will appear at a time, and they slowly "roll" to the bottom of the screen. 
 
+In order to activate a power-up, you must collect it with the Vaus. 
+Power-up effects last until another power-up is collected or the current ball is lost.
 
+Red Capsule     with Letter "L" - Laser:
+Blue Capsule    with Letter "E" - Enlarge:
+Cyan Capsule    with Letter "D" - Disruption: 
+Green Capsule   with Letter "C" - Catch: 
+Orange Capsule  with letter "S" - Slow:
+Magenta Capsule with letter "B" - Break:
 
-
-
-
-
-
-
-The game of Arkanoid is divided into 33 stages. 
-The first 32 stages are composed of a variety of layouts of bricks. 
-The final 33rd stage is a confrontation between the Vaus and the physical manifestation of 
-the enemy known only as "DOH" who resembles a large head of a Moai statue from Easter Island. 
-
-After successfully clearing 32 stages, you will have the opportunity to use your remaining lives to defeat the enemy DOH. 
-If you do not succeed in defeating DOH before the game is over, you will not be permitted to continue and try again. 
-You must hit DOH with the ball 16 times. As you try, DOH spits projectiles from his mouth that are deadly to the Vaus. 
-If one of them strikes the Vaus, it will explode, so they must be avoided at all costs while preventing the ball from ever slipping 
-below the Vaus. If you succeed, you will be presented with the ending to the game.
-( https://strategywiki.org/wiki/Arkanoid/Walkthrough )
-
-
-Red 		- 90
-Orange
-Pink
-Green 	- 80 
-Yellow
-Blue 
-Light Blue
-White
-
-Silver - x3   - 50 
-Gold - Indestructible 
- 
-
-
-Red "L" pill - Lasers 
-Blue "E" pill - Extended Vaus 
-
-
-
-
-Hexagon BG Enemies (cone dudes) - 100 points  
-
-
+Grey Capsule with letter "P" - Extra life (Vaus) shownin the bottom left of the screen.
 Extra lives are typically awarded at 20,000 points, again at 60,000 points, and every 60,000 points thereafter.
+
+
+Playfield (13 x 27 ish) 
+-------------------
+The Playfield would fit 13 bricks across and 28 bricks down if it was entirly covered. 
+
+There are two "doors" at the top of the playfield that Enimies appear from. 
+The type of Enemy rotates and always matches the background of the playfield.
+
+01 in rotation - Blue Hexagon BG    - Enemies (blue split cone / spinny dudes) - 100 points
+02 in rotation - Green Swilry BG    - Enemies (green pyrimid (3 sided) dudes) - 100 points  
+03 in rotation - Blue Etching BG    - Enemies (tri-sphere (RGB) dudes) - 100 points 
+04 in rotation - Red Etching BG     - Enemies (red cubes that morph into a sphere dudes) - 100 points 
+
+The rotation repeats in order throughout all levels 
+(((See BG and Ememy Folders)))
+
+The Levels
+----------
+(((See the Levels Folder for the details)))
+
+
+
+
+
+
+
