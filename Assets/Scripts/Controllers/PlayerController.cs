@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void Update() {
-		float xPos = transform.position.x + (Input.GetAxis("Horizontal") * m_speed);
+		float xPos = transform.position.x + (Input.GetAxis("Horizontal") * m_speed)* Time.deltaTime;
         m_playerPos = new Vector3 (Mathf.Clamp (xPos, 1f, 13f), 0, -1.5f);
         transform.position = m_playerPos;
 

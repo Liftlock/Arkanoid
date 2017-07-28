@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ball
   - Boundries
+  - PowerUp
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - Ball
   - Boundry
   - Brick
-  - 
+  - PowerUp
   - 
   - 
   - 
