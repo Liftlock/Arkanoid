@@ -34,9 +34,14 @@ public class PowerUpController : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other) {
 		if(other.tag == "Player") {
-			// pickup aquired
-			Debug.Log("I've got the power! ");
+			// pickup aquired .. .send the details to the player
+			other.gameObject.GetComponent<PlayerController>().AddSuperPower(m_powerUpType);
+			Destroy(this.gameObject);
+		}
 
+		if(other.tag == "Ball" && m_active) {
+			// oh crackers ... we destroyed a perfectly good powerup 
+			Destroy(this.gameObject);
 		}
 	}
 

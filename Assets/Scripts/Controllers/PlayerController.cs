@@ -6,14 +6,10 @@ public class PlayerController : MonoBehaviour {
 	private Rigidbody m_ballRB;
 
 	public float m_speed; 
-	
 	private Vector3 m_playerPos;
 	public GameObject m_ball;
 	private bool m_haveBall; 
 
-	
-
-	// private enum State {}; 
 
 	void Start() {
 		m_ballRB = m_ball.GetComponent<Rigidbody>();
@@ -35,6 +31,12 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
+
+	public void AddSuperPower(SuperPower thePower){
+		switch(thePower) {
+			
+		}
+	}
 
 	public void HaveBall() {
 		m_haveBall = true;
