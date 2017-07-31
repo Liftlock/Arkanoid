@@ -39,10 +39,10 @@ public class PowerUpController : MonoBehaviour {
 			Destroy(this.gameObject);
 		}
 
-		if(other.tag == "Ball" && m_active) {
-			// oh crackers ... we destroyed a perfectly good powerup 
-			Destroy(this.gameObject);
-		}
+		// if(other.tag == "Ball" && m_active) {
+		// 	// oh crackers ... we destroyed a perfectly good powerup 
+		// 	Destroy(this.gameObject);
+		// }
 	}
 
 

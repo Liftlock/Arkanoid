@@ -22,7 +22,7 @@ public class LevelManager : MonoBehaviour {
 	// LtBlue	- #399FFF
 	// Magenta	- #FF00E3
 	// Green 	- #05FF00 
-
+	public GameManager m_gameManager;
 
 	private Color m_colorGrey = new Color32(0x53, 0x53, 0x53, 1);
 	private Color m_colorRed = new Color32(0xF9, 0x23, 0x23, 1);	
@@ -54,14 +54,14 @@ public class LevelManager : MonoBehaviour {
 	
 	private string[,] m_playField; 
 
-
+	
 
 	// Use this for initialization
 	
 	void Start () {
 		m_playField = new string[m_fieldHeight, m_fieldWidth];
 		LoadLevel();
-		CreateLevel();
+		CreateLevel();	
 	}
 
 	
@@ -177,6 +177,11 @@ public class LevelManager : MonoBehaviour {
 		if(Input.GetKey(KeyCode.O)) {
 			dBugLevel();
 		}
+
+
+		
+
+
 	}
 
 

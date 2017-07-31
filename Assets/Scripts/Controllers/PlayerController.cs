@@ -11,6 +11,34 @@ public class PlayerController : MonoBehaviour {
 	private bool m_haveBall; 
 
 
+	/* 
+		Standard Vaus 
+		-------------
+		LeftTip Pos; -0.5, 0, 0
+		LeftEnd Pos: -0.6, 0, 0
+		Center Scale: 0.5, 0.75, 0.5 
+		RightEnd Pos: 0.6, 0, 0
+		RightTip Pos 0.5, 0, 0
+
+		Collider Height: 1.8
+	
+
+		Extended Vaus
+		-------------
+		LeftTip Pos; -0.75, 0, 0
+		LeftEnd Pos: -0.85, 0, 0
+		Center Scale 0.5, 1, 0.5
+		RightEnd Pos: 0.85, 0, 0
+		RightTip Pos 0.75, 0, 0
+		
+
+		Collider Height: 2.3 
+
+	 */
+
+
+
+
 	void Start() {
 		m_ballRB = m_ball.GetComponent<Rigidbody>();
 		m_haveBall = true;
@@ -31,10 +59,47 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
+	public void Grow() {
+		/*  Extended Vaus
+			-------------
+			LeftTip Pos; -0.75, 0, 0
+			LeftEnd Pos: -0.85, 0, 0
+			Center Scale 0.5, 1, 0.5
+			RightEnd Pos: 0.85, 0, 0
+			RightTip Pos 0.75, 0, 0
+			Collider Height: 2.3 
+		*/ 
+
+		bool growing = true; 
+		while (growing) {
+			
+
+
+			growing = false;
+		}
+
+
+	}
+
+	public void Shrink() {
+		/*  Standard Vaus 
+			-------------
+			LeftTip Pos; -0.5, 0, 0
+			LeftEnd Pos: -0.6, 0, 0
+			Center Scale: 0.5, 0.75, 0.5 
+			RightEnd Pos: 0.6, 0, 0
+			RightTip Pos 0.5, 0, 0
+			Collider Height: 1.8
+		 */
+
+
+
+
+	}
 
 	public void AddSuperPower(SuperPower thePower){
 		switch(thePower) {
-			
+
 		}
 	}
 
