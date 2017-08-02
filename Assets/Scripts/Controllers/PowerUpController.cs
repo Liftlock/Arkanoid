@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 
 public enum SuperPower { BREAK, CATCH, DISRUPT, ENLARGE, LASER, LIFE, SLOW }; 
