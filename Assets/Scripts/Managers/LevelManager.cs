@@ -15,7 +15,7 @@ public enum BrickType {	NONE = 0, WHITE = 50, ORANGE = 60, CYAN = 70, GREEN = 80
 
 public class LevelManager : MonoBehaviour {
 
-	public GameManager m_gameManager;
+	// public GameManager m_gameManager;
 
 	// WIP
 	// private float startX = 1.0f; 
