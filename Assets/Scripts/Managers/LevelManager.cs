@@ -11,11 +11,11 @@ using UnityEngine;
 // Violet  - 110 points
 // Yellow  - 120 points
 
-public enum BrickType {	NONE = 0, WHITE = 50, ORANGE = 60, CYAN = 70, GREEN = 80, RED = 90, BLUE = 100, PURPLE = 110, YELLOW = 120, SILVER = 1, GOLD = 1000};
+public enum BrickType {	NONE = 0, WHITE = 50, ORANGE = 60, CYAN = 70, GREEN = 80, RED = 90, BLUE = 100, MAGENTA = 110, YELLOW = 120, SILVER = 1, GOLD = 1000};
 
 public class LevelManager : MonoBehaviour {
 
-	// public GameManager m_gameManager;
+	public GameObject m_gameManager;
 
 	// WIP
 	// private float startX = 1.0f; 
@@ -102,8 +102,9 @@ public class LevelManager : MonoBehaviour {
 					tmpBrick = Instantiate(m_brickPrefab, tmpPos, Quaternion.identity);
 					tmpBrick.name = "Brick";
 					tmpBrick.transform.parent = m_brickContainer;
-					GetBrickType(tmpBrick, (int)r, c);
-
+					SetBrickType(tmpBrick, GetBrickType(tmpBrick, (int)r, c));
+					tmpBrick.GetComponent<BrickController>().m_GM = m_gameManager.GetComponent<GameManager>();
+					//tmpBrick.GetComponent<BrickController>().SetValue((int)) 
 					// Add PowerUps 
 					if(c == 3) {
 						// randomly give bricks powerups
@@ -119,37 +120,46 @@ public class LevelManager : MonoBehaviour {
 	}
 	
 	
-	private void SetBrickType(GameObject tmpObj, int r, int c) {
+	private void SetBrickType(GameObject tmpObj, BrickType type) {
 
-		
+		tmpObj.GetComponent<BrickController>().SetValue((int) type);
 
 	}
 
 
-	private string GetBrickType(GameObject tmpObj, int r, int c) {
+	private BrickType GetBrickType(GameObject tmpObj, int r, int c) {
+
+		BrickType ret = BrickType.NONE;
 
 		//TODO: Add a call to the bricks script to set it's type and possibly move this into the brick
 		switch(m_playField[r, c]) {
 			case "E": // Grey 
 				tmpObj.GetComponent<MeshRenderer>().material.color = Color.grey; 
+				ret = BrickType.SILVER;
 				break; 
 			case "R": // Red
 				tmpObj.GetComponent<MeshRenderer>().material.color = Color.red;
+				ret = BrickType.RED;
 				break; 
 			case "Y": // Yellow
 				tmpObj.GetComponent<MeshRenderer>().material.color = Color.yellow;
+				ret = BrickType.YELLOW;
 				break; 
 			case "C": // Cyan
 				tmpObj.GetComponent<MeshRenderer>().material.color = Color.cyan; 
+				ret = BrickType.CYAN;
 				break; 
 			case "M": // Magenta
 				tmpObj.GetComponent<MeshRenderer>().material.color = Color.magenta;
+				ret = BrickType.MAGENTA; 
 				break; 
 			case "G": // Green
 				tmpObj.GetComponent<MeshRenderer>().material.color = Color.green;
+				ret = BrickType.GREEN;
 				break; 
 			case "W": // White
 				tmpObj.GetComponent<MeshRenderer>().material.color = Color.white;
+				ret = BrickType.WHITE;
 				break; 
 			// case "O": // Orange
 			// 	tmpObj.GetComponent<MeshRenderer>().material.color = Color.orange;
@@ -179,7 +189,7 @@ public class LevelManager : MonoBehaviour {
 
 
 
-		return m_playField[r, c]; 
+		return ret;
 	}
 
 
@@ -194,34 +204,6 @@ public class LevelManager : MonoBehaviour {
 		}
 	}
 
-
-
-	
-	// void OnDrawGizmos() {
-		
-	// 	//dBugInit();
-	// 	Vector3 tmpPos; // position of brickWire to be created (1.0 from last on X and 0.5 from last on Z)
-
-	// 	if(m_playField != null) {
-	// 		tmpPos = Vector3.zero; 
-	// 		for(float r = 0, z = startZ; r < m_fieldHeight; r++, z -= 0.5f) {
-	// 			for(int c = 0; c < m_fieldWidth; c++) {
-	// 				if (m_playField[(int)r, c] != " ") {
-	// 					tmpPos.x = c+1; 
-	// 					tmpPos.z = z; 
-	// 					Gizmos.color =  Color.white; // TODO: magic
-	// 					if(m_playField[(int)r, c] == "E") { Gizmos.color = Color.gray; }
-	// 					if(m_playField[(int)r, c] == "R") { Gizmos.color = Color.red; }
-	// 					if(m_playField[(int)r, c] == "Y") { Gizmos.color = Color.yellow; }
-	// 					if(m_playField[(int)r, c] == "B") { Gizmos.color = Color.cyan; }
-	// 					if(m_playField[(int)r, c] == "M") { Gizmos.color = Color.magenta; }
-	// 					if(m_playField[(int)r, c] == "G") { Gizmos.color = Color.green; }
-	// 					Gizmos.DrawWireCube(tmpPos, m_brickDimensions); 
-	// 				}
-	// 			}
-	// 		}
-	// 	}
-	// }
 
 	public void dBugLevel() {
 		string outS = "";

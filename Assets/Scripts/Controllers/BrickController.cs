@@ -10,6 +10,9 @@ public class BrickController : MonoBehaviour {
 
 	
 
+	public GameManager m_GM; 
+	
+
 	void Start () {
         m_numberOfHits = 0;
 		m_hitsToKill = 1;
@@ -22,9 +25,10 @@ public class BrickController : MonoBehaviour {
  
         	if (m_numberOfHits == m_hitsToKill) {
 				if(m_havePowerUp) {
-					//Debug.Log("Attempting to activate " + m_powerUp.name);
+					
 					m_powerUp.GetComponent<PowerUpController>().Activate();
 				} 
+				m_GM.m_score += m_points;
             	Destroy(this.gameObject);
         	}
     	}
@@ -32,8 +36,15 @@ public class BrickController : MonoBehaviour {
 
 	// Adding PowerUps 
 	public void AddPowerUp(GameObject powerUp) {
+
 		m_powerUp = powerUp; 
 		m_havePowerUp = true;
+		
+	}
+
+	// points 
+	public void SetValue(int points) {
+		m_points = points;
 	}
 	
 }
