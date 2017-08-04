@@ -4,13 +4,13 @@
 public enum SuperPower { BREAK, CATCH, DISRUPT, ENLARGE, LASER, LIFE, SLOW }; 
 
 /*
-	Red Capsule     with Letter "L" - Laser: FF0000
-	Blue Capsule    with Letter "E" - Enlarge: 
-	Cyan Capsule    with Letter "D" - Disruption: 
-	Green Capsule   with Letter "C" - Catch: 05FF00
-	Orange Capsule  with letter "S" - Slow:
 	Magenta Capsule with letter "B" - Break:
+	Green Capsule   with Letter "C" - Catch:
+	Cyan Capsule    with Letter "D" - Disruption: 
+	Blue Capsule    with Letter "E" - Enlarge: 
+	Red Capsule     with Letter "L" - Laser:
 	Grey Capsule 	with letter "P" - Extra life (Vaus)
+	Orange Capsule  with letter "S" - Slow:
  */
 
 public class PowerUpController : MonoBehaviour {
@@ -21,8 +21,7 @@ public class PowerUpController : MonoBehaviour {
 	private SuperPower m_powerUpType;
 
 	void Update () {
-		
-		
+	
 		if(m_active) {
 			 transform.Rotate(0, m_rotateSpeed * Time.deltaTime, 0);
 			transform.position += new Vector3(0, 0, m_speed * Time.deltaTime); 
@@ -37,6 +36,7 @@ public class PowerUpController : MonoBehaviour {
 			Destroy(this.gameObject);
 		}
 
+		// Destroy PowerUp on Ball Collision 
 		// if(other.tag == "Ball" && m_active) {
 		// 	// oh crackers ... we destroyed a perfectly good powerup 
 		// 	Destroy(this.gameObject);
@@ -49,8 +49,6 @@ public class PowerUpController : MonoBehaviour {
 	} 
 
 	public void SetSuperPower(Texture pickupType) {
-
-		Debug.Log("Texture " + pickupType.name + " found");
 
 		switch(pickupType.name) {
 			case "Break":

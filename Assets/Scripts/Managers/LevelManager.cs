@@ -15,29 +15,12 @@ public enum BrickType {	NONE = 0, WHITE = 50, ORANGE = 60, CYAN = 70, GREEN = 80
 
 public class LevelManager : MonoBehaviour {
 
-	// Colors 
-	// Grey 	- #535353
-	// Red		- #F92323
-	// Yellow	- #F8FF00
-	// LtBlue	- #399FFF
-	// Magenta	- #FF00E3
-	// Green 	- #05FF00 
 	public GameManager m_gameManager;
-
-	private Color m_colorGrey = new Color32(0x53, 0x53, 0x53, 1);
-	private Color m_colorRed = new Color32(0xF9, 0x23, 0x23, 1);	
-	private Color m_colorYellow = new Color32(0xF8, 0xFF, 0x00, 1);
-	private Color m_colorLightBlue = new Color32(0x39, 0x9F, 0xFF, 1);
-	private Color m_colorMagenta = new Color32(0xF9, 0x23, 0x23, 1);
-	private Color m_colorGreen = new Color32(0x05, 0xFF, 0x00, 1);
-
 
 	// WIP
 	// private float startX = 1.0f; 
 	private float startZ = 17.0f; 
-
-	private Vector3 m_brickDimensions = new Vector3(0.95f, 0.45f, 0.45f);
-
+	//private Vector3 m_brickDimensions = new Vector3(0.95f, 0.45f, 0.45f); 
 
 	public GameObject m_brickPrefab; 
 	public Transform m_brickContainer;
@@ -72,7 +55,8 @@ public class LevelManager : MonoBehaviour {
 		for(int r = 0; r < m_fieldHeight; r++) {
 			for(int c = 0; c < m_fieldWidth; c++) {
 				
-				switch(r) {
+				// Round 01 
+				switch(r) { 
 					case 4: 	
 						block = "E"; // Grey 
 						break; 
@@ -83,7 +67,7 @@ public class LevelManager : MonoBehaviour {
 						block = "Y"; // Yellow
 						break;
 					case 7: 
-						block = "B"; // Blue
+						block = "C"; // Cyan
 						break; 
 					case 8:
 						block = "M"; // Magenta
@@ -111,17 +95,19 @@ public class LevelManager : MonoBehaviour {
 
 		for(float r = 0, z = startZ; r < m_fieldHeight; r++, z -= 0.5f) {
 			for(int c = 0; c < m_fieldWidth; c++) {
+		
 				if (m_playField[(int)r, c] != " ") {
-					tmpPos.x = c+1; 
+					tmpPos.x = c + 1; 
 					tmpPos.z = z; 
 					tmpBrick = Instantiate(m_brickPrefab, tmpPos, Quaternion.identity);
 					tmpBrick.name = "Brick";
 					tmpBrick.transform.parent = m_brickContainer;
 					GetBrickType(tmpBrick, (int)r, c);
 
+					// Add PowerUps 
 					if(c == 3) {
 						// randomly give bricks powerups
-						SuperPower tmpPower = SuperPower.LIFE; 
+						SuperPower tmpPower = SuperPower.DISRUPT; 
 						tmpPowerUp = Instantiate(m_powerUpPrefab, tmpPos, Quaternion.Euler(0, 0, -90));
 						tmpPowerUp.GetComponent<PowerUpController>().SetSuperPower(m_powerUpTextures[(int)tmpPower]);
 						tmpBrick.GetComponent<BrickController>().AddPowerUp(tmpPowerUp.gameObject);
@@ -145,24 +131,53 @@ public class LevelManager : MonoBehaviour {
 		//TODO: Add a call to the bricks script to set it's type and possibly move this into the brick
 		switch(m_playField[r, c]) {
 			case "E": // Grey 
-				tmpObj.GetComponent<MeshRenderer>().material.color = m_colorGrey; 
+				tmpObj.GetComponent<MeshRenderer>().material.color = Color.grey; 
 				break; 
 			case "R": // Red
-				tmpObj.GetComponent<MeshRenderer>().material.color = m_colorRed;
+				tmpObj.GetComponent<MeshRenderer>().material.color = Color.red;
 				break; 
 			case "Y": // Yellow
-				tmpObj.GetComponent<MeshRenderer>().material.color = m_colorYellow;
+				tmpObj.GetComponent<MeshRenderer>().material.color = Color.yellow;
 				break; 
-			case "B": // Blue
-				tmpObj.GetComponent<MeshRenderer>().material.color = Color.gray;//  m_colorLightBlue;
+			case "C": // Cyan
+				tmpObj.GetComponent<MeshRenderer>().material.color = Color.cyan; 
 				break; 
 			case "M": // Magenta
 				tmpObj.GetComponent<MeshRenderer>().material.color = Color.magenta;
 				break; 
 			case "G": // Green
-				tmpObj.GetComponent<MeshRenderer>().material.color = m_colorGreen;
+				tmpObj.GetComponent<MeshRenderer>().material.color = Color.green;
 				break; 
+			case "W": // White
+				tmpObj.GetComponent<MeshRenderer>().material.color = Color.white;
+				break; 
+			// case "O": // Orange
+			// 	tmpObj.GetComponent<MeshRenderer>().material.color = Color.orange;
+			// 	break; 
+			// case "S": // Silver
+			// 	tmpObj.GetComponent<MeshRenderer>().material.color = Color.Silver;
+			// 	break; 
+			// case "U": // Gold
+			// 	tmpObj.GetComponent<MeshRenderer>().material.color = Color.Gold;
+			// 	break; 
+			
+
+
 		}
+
+
+		// White   	- 50 points	
+		// Orange  	- 60 points
+		// Cyan    	- 70 points
+		// Green   	- 80 points
+		// Red     	- 90 points
+		// Blue    	- 100 points
+		// MAgenta 	- 110 points
+		// Yellow  	- 120 points
+		// Silver 	- 
+		// Gold		- Indestructible
+
+
 
 		return m_playField[r, c]; 
 	}
@@ -177,49 +192,36 @@ public class LevelManager : MonoBehaviour {
 		if(Input.GetKey(KeyCode.O)) {
 			dBugLevel();
 		}
-
-
-		
-
-
 	}
 
 
 
 	
-	void OnDrawGizmos() {
+	// void OnDrawGizmos() {
 		
-		//dBugInit();
-		Vector3 tmpPos; // position of brickWire to be created (1.0 from last on X and 0.5 from last on Z)
+	// 	//dBugInit();
+	// 	Vector3 tmpPos; // position of brickWire to be created (1.0 from last on X and 0.5 from last on Z)
 
-		if(m_playField != null) {
-			
-			tmpPos = Vector3.zero; 
-			for(float r = 0, z = startZ; r < m_fieldHeight; r++, z -= 0.5f) {
-				for(int c = 0; c < m_fieldWidth; c++) {
-					if (m_playField[(int)r, c] != " ") {
-						tmpPos.x = c+1; 
-						tmpPos.z = z; 
-						Gizmos.color =  Color.white; // TODO: magic
-						if(m_playField[(int)r, c] == "E") { Gizmos.color = Color.gray; }
-						if(m_playField[(int)r, c] == "R") { Gizmos.color = Color.red; }
-						if(m_playField[(int)r, c] == "Y") { Gizmos.color = Color.yellow; }
-						if(m_playField[(int)r, c] == "B") { Gizmos.color = Color.cyan; }
-						if(m_playField[(int)r, c] == "M") { Gizmos.color = Color.magenta; }
-						if(m_playField[(int)r, c] == "G") { Gizmos.color = Color.green; }
-
-						Gizmos.DrawWireCube(tmpPos, m_brickDimensions); 
-					}
-				}
-			}
-		}
-	}
-
-	
-	private void dBugInit() { // used so we can see the brick placement in edit mode
-		m_playField = new string[m_fieldHeight, m_fieldWidth];
-		LoadLevel();
-	}
+	// 	if(m_playField != null) {
+	// 		tmpPos = Vector3.zero; 
+	// 		for(float r = 0, z = startZ; r < m_fieldHeight; r++, z -= 0.5f) {
+	// 			for(int c = 0; c < m_fieldWidth; c++) {
+	// 				if (m_playField[(int)r, c] != " ") {
+	// 					tmpPos.x = c+1; 
+	// 					tmpPos.z = z; 
+	// 					Gizmos.color =  Color.white; // TODO: magic
+	// 					if(m_playField[(int)r, c] == "E") { Gizmos.color = Color.gray; }
+	// 					if(m_playField[(int)r, c] == "R") { Gizmos.color = Color.red; }
+	// 					if(m_playField[(int)r, c] == "Y") { Gizmos.color = Color.yellow; }
+	// 					if(m_playField[(int)r, c] == "B") { Gizmos.color = Color.cyan; }
+	// 					if(m_playField[(int)r, c] == "M") { Gizmos.color = Color.magenta; }
+	// 					if(m_playField[(int)r, c] == "G") { Gizmos.color = Color.green; }
+	// 					Gizmos.DrawWireCube(tmpPos, m_brickDimensions); 
+	// 				}
+	// 			}
+	// 		}
+	// 	}
+	// }
 
 	public void dBugLevel() {
 		string outS = "";

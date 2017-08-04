@@ -52,7 +52,7 @@ Cyan    - 70 points
 Green   - 80 points
 Red     - 90 points
 Blue    - 100 points
-Violet  - 110 points
+Magenta - 110 points
 Yellow  - 120 points
 
 Silver bricks take more than one hit to destroy. 

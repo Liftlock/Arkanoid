@@ -9,6 +9,10 @@ public class BallController : MonoBehaviour {
 	public GameObject m_playerObject; 
 	private Rigidbody m_RB; 
 
+	// WIP
+	public void MakeActive(){
+		m_ballIsActive = true;
+	}
 
 	void Start () {
 		m_RB = GetComponent<Rigidbody>();

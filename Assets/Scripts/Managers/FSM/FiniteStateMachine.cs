@@ -1,6 +1,6 @@
 ﻿/* ************************************************************
  FiniteStateMachine 
- The LiftlockStudios FiniteStateMAching
+ The Liftlock Studios FiniteStateMachine
  This is a C# Implementation of Matt Bucklands FSM 
  Uses the abstract FSMState class
    
