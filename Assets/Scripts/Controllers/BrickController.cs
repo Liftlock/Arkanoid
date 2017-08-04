@@ -22,10 +22,10 @@ public class BrickController : MonoBehaviour {
 	void OnCollisionEnter(Collision other) {
 		if (other.gameObject.tag == "Ball"){
         	m_numberOfHits++;
- 
+			other.gameObject.GetComponent<BallController>().PlaySound("Brick");
         	if (m_numberOfHits == m_hitsToKill) {
+				
 				if(m_havePowerUp) {
-					
 					m_powerUp.GetComponent<PowerUpController>().Activate();
 				} 
 				m_GM.m_score += m_points;

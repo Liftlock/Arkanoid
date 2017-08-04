@@ -25,9 +25,17 @@ public class LevelManager : MonoBehaviour {
 	public GameObject m_brickPrefab; 
 	public Transform m_brickContainer;
 
+
+	// Lives 
+	public GameObject m_lifePrefab; 
+	public Transform m_lifeContainer;
+
+
 	// PowerUps 
 	public GameObject m_powerUpPrefab; 
 	public Texture[] m_powerUpTextures;
+
+	
 
 
 	// grid of bricks (the playfield) is 13 bricks wide and 27 bricks tall 
@@ -121,9 +129,7 @@ public class LevelManager : MonoBehaviour {
 	
 	
 	private void SetBrickType(GameObject tmpObj, BrickType type) {
-
 		tmpObj.GetComponent<BrickController>().SetValue((int) type);
-
 	}
 
 
@@ -161,16 +167,7 @@ public class LevelManager : MonoBehaviour {
 				tmpObj.GetComponent<MeshRenderer>().material.color = Color.white;
 				ret = BrickType.WHITE;
 				break; 
-			// case "O": // Orange
-			// 	tmpObj.GetComponent<MeshRenderer>().material.color = Color.orange;
-			// 	break; 
-			// case "S": // Silver
-			// 	tmpObj.GetComponent<MeshRenderer>().material.color = Color.Silver;
-			// 	break; 
-			// case "U": // Gold
-			// 	tmpObj.GetComponent<MeshRenderer>().material.color = Color.Gold;
-			// 	break; 
-			
+			// ... etc .. 
 
 
 		}

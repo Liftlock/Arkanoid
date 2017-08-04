@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour {
 	public GameObject m_ball;
 	private bool m_haveBall; 
 
-
+	private int m_lifeCount;
 	/* 
 		Standard Vaus 
 		-------------
@@ -162,5 +162,14 @@ public class PlayerController : MonoBehaviour {
 	public void HaveBall() {
 		m_haveBall = true;
 	}
+
+
+	void OnCollisionEnter(Collision other) {
+		if(other.gameObject.tag == "Ball") {
+			other.gameObject.GetComponent<BallController>().PlaySound("Vaus");
+		}
+	}
+
+
 
 }

@@ -18,10 +18,12 @@ public class GameManager : MonoBehaviour {
 
 
 	void Update() {
-		
+
 		m_scoreText.text = m_score.ToString();
 	}
 
+
+	
 
 
 
